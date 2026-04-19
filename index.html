@@ -1,400 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bushra Khatun | Professional Portfolio</title>
-  <style>
-    :root {
-      --bg: #f3f6fb;
-      --card: #ffffff;
-      --text: #27344b;
-      --muted: #617086;
-      --accent: #3b82f6;
-      --green: #25a35a;
-      --line: #dce4f0;
-      --shadow: 0 16px 36px rgba(28, 45, 78, 0.12);
-      --radius: 24px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #f7f9fc 0%, #eef3fa 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    a { text-decoration: none; color: inherit; }
-    .container {
-      width: min(1120px, calc(100% - 28px));
-      margin: 0 auto;
-    }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(247,249,252,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(220,228,240,0.8);
-    }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      padding: 18px 0;
-    }
-    .brand {
-      font-weight: 700;
-      font-size: 1.12rem;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    .hero {
-      padding: 34px 0 18px;
-    }
-    .hero-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 34px;
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 28px;
-      align-items: center;
-    }
-    .portrait-wrap {
-      display: flex;
-      justify-content: center;
-    }
-    .portrait {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid #edf2fb;
-      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.9), 0 10px 20px rgba(39,52,75,0.12);
-      background: #eef3fa;
-    }
-    .eyebrow {
-      color: var(--muted);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.82rem;
-      margin-bottom: 8px;
-    }
-    h1 {
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      line-height: 1.05;
-      margin: 0 0 10px;
-    }
-    .lead {
-      color: var(--muted);
-      max-width: 760px;
-      margin-bottom: 18px;
-      font-size: 1.04rem;
-    }
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-    .primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-      box-shadow: 0 10px 24px rgba(59,130,246,0.22);
-    }
-    .secondary {
-      background: white;
-      color: var(--text);
-    }
-    .status {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      background: #f2fbf5;
-      color: var(--green);
-      border: 1px solid #d8f1df;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.93rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 18px;
-      padding: 18px 0 52px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 24px;
-    }
-    .span-12 { grid-column: span 12; }
-    .span-8 { grid-column: span 8; }
-    .span-7 { grid-column: span 7; }
-    .span-6 { grid-column: span 6; }
-    .span-5 { grid-column: span 5; }
-    .span-4 { grid-column: span 4; }
-    h2 { margin: 0 0 12px; font-size: 1.28rem; }
-    h3 { margin: 0 0 8px; font-size: 1.02rem; }
-    .muted { color: var(--muted); }
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 16px;
-    }
-    .metric {
-      background: linear-gradient(180deg, #ffffff, #f8fbff);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      text-align: center;
-      padding: 18px;
-    }
-    .metric strong {
-      display: block;
-      font-size: 1.45rem;
-      margin-bottom: 4px;
-    }
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .pill {
-      background: #eaf2ff;
-      color: #2f6fed;
-      border-radius: 999px;
-      padding: 10px 14px;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-    .timeline {
-      display: grid;
-      gap: 14px;
-      margin-top: 14px;
-    }
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 116px 1fr;
-      gap: 14px;
-      align-items: start;
-    }
-    .time {
-      background: #eef4ff;
-      color: #2f6fed;
-      padding: 10px 12px;
-      border-radius: 12px;
-      text-align: center;
-      font-weight: 700;
-    }
-    .case-study {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: #fbfcff;
-      padding: 18px;
-    }
-    .case-study + .case-study { margin-top: 14px; }
-    .report-item {
-      border-left: 4px solid var(--accent);
-      padding-left: 14px;
-      margin-top: 14px;
-    }
-    .link-box {
-      display: block;
-      margin-top: 10px;
-      border: 1px dashed #b8ccf6;
-      border-radius: 14px;
-      background: #f8fbff;
-      padding: 14px 16px;
-      color: #2f6fed;
-      font-weight: 700;
-      word-break: break-word;
-    }
-    footer {
-      padding: 0 0 50px;
-      color: var(--muted);
-    }
-    @media (max-width: 900px) {
-      .hero-card { grid-template-columns: 1fr; }
-      .span-8, .span-7, .span-6, .span-5, .span-4 { grid-column: span 12; }
-      .timeline-item { grid-template-columns: 1fr; }
-      .metric-grid { grid-template-columns: 1fr; }
-      .portrait-wrap { justify-content: flex-start; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container nav">
-      <div class="brand">Bushra Khatun</div>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#case-studies">Case Studies</a>
-        <a href="#timeline">Timeline</a>
-        <a href="#report">Final Report</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+Bushra Khatun
+Home
+Overview
+Case Studies
+Timeline
+Final Report
+Contact
+Photo of Bushra Khatun
+People Operations • IT Project Management
+Professional Portfolio Website
+A professional project portfolio developed over eight weeks to demonstrate strategic planning, content development, website design, usability testing, and executive-level presentation skills. This site represents the final deliverable for my portfolio website development project.
 
-  <main class="container">
-    <section class="hero" id="home">
-      <div class="hero-card">
-        <div class="portrait-wrap">
-          <img class="portrait" src="bushra-photo.png" alt="Photo of Bushra Khatun" />
-        </div>
-        <div>
-          <div class="eyebrow">People Operations • IT Project Management</div>
-          <h1>Professional Portfolio Website</h1>
-          <p class="lead">A polished portfolio project developed over 8 weeks to demonstrate project planning, website design, usability improvement, content strategy, and professional presentation.</p>
-          <div class="button-row">
-            <a class="btn primary" href="#case-studies">View Case Studies</a>
-            <a class="btn secondary" href="#report">Read Final Report</a>
-          </div>
-          <div class="status">✔ Final milestone completed and ready for presentation</div>
-        </div>
-      </div>
-    </section>
+View Case Studies
+Read Final Report
+✔ Final milestone completed and published live
+Project Overview
+This website began as a project proposal and evolved into a polished professional portfolio. The final product demonstrates my ability to move from planning to execution while balancing scope, quality, deadlines, and presentation standards. The website was designed to communicate my work clearly, highlight project outcomes, and create a professional digital presence.
 
-    <section class="grid" id="about">
-      <div class="card span-7">
-        <h2>Project Overview</h2>
-        <p class="muted">This project began as a structured website proposal and progressed into a refined professional portfolio. The final outcome highlights leadership, process improvement, and project execution skills through a clean, user-friendly digital experience.</p>
-        <div class="metric-grid">
-          <div class="metric"><strong>8 Weeks</strong><span class="muted">Project duration</span></div>
-          <div class="metric"><strong>4 Milestones</strong><span class="muted">Tracked and completed</span></div>
-          <div class="metric"><strong>1 Website</strong><span class="muted">Final deliverable</span></div>
-        </div>
-      </div>
+Throughout the process, I focused on design consistency, stronger navigation, responsive layout improvements, and more complete content. By the end of the project, the website reflected not only technical improvement but also a more strategic understanding of user experience, professional branding, and project management discipline.
 
-      <div class="card span-5">
-        <h2>Core Skills Demonstrated</h2>
-        <div class="pill-row">
-          <span class="pill">Project Planning</span>
-          <span class="pill">Website Development</span>
-          <span class="pill">Content Strategy</span>
-          <span class="pill">Usability Testing</span>
-          <span class="pill">Timeline Management</span>
-          <span class="pill">Professional Presentation</span>
-        </div>
-      </div>
+8 Weeks
+Project duration
+4 Milestones
+Major phases tracked
+1 Live Site
+Published final deliverable
+Executive Ready
+Presentation quality
+Core Skills Demonstrated
+Project Planning
+Website Development
+Content Writing
+Professional Branding
+Usability Testing
+Timeline Management
+Design Refinement
+Final Presentation
+Case Studies
+Case Study 1: Portfolio Structure and Navigation
+One of the first priorities was improving structure. I reviewed the original prototype and reorganized the site into clearer sections with more intuitive navigation. This improved readability, reduced clutter, and made the website feel more professional and purposeful for users reviewing my work.
 
-      <div class="card span-6" id="case-studies">
-        <h2>Case Studies</h2>
-        <div class="case-study">
-          <h3>Case Study 1: Portfolio Structure and Navigation</h3>
-          <p class="muted">Redesigned the site structure to create clearer navigation, stronger section hierarchy, and a more professional visual flow for users reviewing project work.</p>
-        </div>
-        <div class="case-study">
-          <h3>Case Study 2: Content Refinement and Professional Branding</h3>
-          <p class="muted">Expanded project descriptions, clarified value statements, and aligned page content with a professional audience interested in operations and project management outcomes.</p>
-        </div>
-        <div class="case-study">
-          <h3>Case Study 3: Responsiveness and Final Usability Improvements</h3>
-          <p class="muted">Improved readability, spacing, and layout responsiveness to strengthen the mobile and desktop user experience before final submission.</p>
-        </div>
-      </div>
+Case Study 2: Content Refinement and Professional Positioning
+The second major focus was content quality. I expanded project descriptions, strengthened the professional tone of the writing, and clarified the value of each section. This process showed me that strong content is just as important as design when building a professional portfolio.
 
-      <div class="card span-6" id="timeline">
-        <h2>Project Timeline</h2>
-        <p class="muted">The timeline below summarizes the main phases completed throughout the project.</p>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="time">Weeks 1–2</div>
-            <div><strong>Planning and proposal</strong><br><span class="muted">Defined scope, goals, and initial website concept.</span></div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">Weeks 3–4</div>
-            <div><strong>Prototype development</strong><br><span class="muted">Built the first working version and established core pages.</span></div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">Weeks 5–6</div>
-            <div><strong>Content expansion</strong><br><span class="muted">Added case studies, improved messaging, and enhanced design consistency.</span></div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">Weeks 7–8</div>
-            <div><strong>Testing and final polish</strong><br><span class="muted">Reviewed usability, refined details, and prepared the final presentation package.</span></div>
-          </div>
-        </div>
-      </div>
+Case Study 3: Responsiveness and Final Usability Improvements
+In the final phase, I focused on responsiveness, spacing, consistency, and usability. Reviewing the site across different screen sizes helped me identify small issues that affected professionalism. Refining those details improved the final presentation quality and user experience.
 
-      <div class="card span-12" id="report">
-        <h2>Final Report Summary</h2>
+Project Timeline
+The timeline below summarizes the main phases completed during the eight-week project cycle.
 
-        <div class="report-item">
-          <h3>A. Were we successful?</h3>
-          <p class="muted">Yes. The project was successful because the website progressed from a prototype into a polished final product with stronger content, better structure, and improved usability.</p>
-        </div>
+Weeks 1–2
+Planning and proposal development
+Defined project scope, clarified deliverables, and established the first website concept.
+Weeks 3–4
+Prototype creation
+Built the first version of the site and created the core structure for future content.
+Weeks 5–6
+Content expansion and refinement
+Developed case studies, improved messaging, and aligned the visual design with a more professional standard.
+Weeks 7–8
+Testing, polish, and final publication
+Reviewed usability, made final design updates, completed supporting documents, and published the website live.
+Final Report
+A. Were we successful or not? Why or why not?
+Yes, the project was successful overall. The original goal was to develop a functional and professional portfolio website, and that goal was achieved. The website now presents a stronger structure, more complete content, improved usability, and a polished final appearance. Although some tasks required more time than expected, the project met its primary objectives and produced a live final deliverable.
 
-        <div class="report-item">
-          <h3>B. Milestones and subtasks</h3>
-          <p class="muted">Major milestones included planning, prototype development, content expansion, usability improvement, and final testing. Subtasks included case study creation, navigation refinement, responsiveness updates, and final review.</p>
-        </div>
+B. What were the milestones and subtasks?
+The main milestones included planning, prototype development, content refinement, usability improvement, and final completion. Subtasks included defining goals, organizing the site structure, writing case studies, revising content for clarity, testing responsiveness, updating navigation, and preparing the final report, Gantt chart, and presentation materials.
 
-        <div class="report-item">
-          <h3>C. Missed deadlines and management lessons</h3>
-          <p class="muted">A few content-related tasks took longer than expected because content writing and design iteration required more time. In future projects, adding buffer time, breaking work into smaller deliverables, and reviewing progress weekly would reduce delays.</p>
-        </div>
+C. Where did we miss deadlines, and how could that be prevented?
+A few content-related tasks extended beyond the original timeline because content writing, revision, and design refinement required more time than expected. A manager could prevent similar delays in the future by building buffer time into the schedule, breaking large tasks into smaller checkpoints, and conducting regular progress reviews to identify risks earlier.
 
-        <div class="report-item">
-          <h3>D. What we learned</h3>
-          <p class="muted">The past 8 weeks reinforced the value of realistic planning, revision cycles, user experience design, and disciplined time management.</p>
-        </div>
+D. What did we learn from the past 8 weeks?
+This project reinforced the importance of realistic planning, iterative improvement, and strong attention to user experience. I learned that content development often takes more time than expected, that feedback and revision strengthen the final result, and that small visual details can significantly affect professionalism.
 
-        <div class="report-item">
-          <h3>E. Future impact</h3>
-          <p class="muted">Completing this project strengthened both technical and professional skills, especially in organizing work, presenting outcomes, and managing a project from idea to delivery.</p>
-        </div>
+E. How will completing this project impact the future?
+Completing this project strengthened my confidence in managing a project from concept to delivery. It improved my skills in project planning, communication, writing, design refinement, and professional presentation. These are valuable skills that will support my academic growth and future work in operations and project management.
 
-        <div class="report-item">
-          <h3>F. Website link</h3>
-          <p class="muted">Replace the placeholder below with your live published link before submitting.</p>
-          <span class="link-box">https://your-live-website-link.com</span>
-        </div>
-      </div>
+F. Live website link
+This is the live published version of the project website.
 
-      <div class="card span-8" id="contact">
-        <h2>Presentation Notes</h2>
-        <p class="muted">This website is designed to support the final presentation by giving a professional overview of the project, its timeline, and its outcomes. It can be published on GitHub Pages in a few minutes using the files in this package.</p>
-      </div>
+https://bkhatun93.github.io/Bushra-Khatun-Portfolio/
+Professional Reflection
+This project was not just about building a website. It was also about learning how to plan work, adjust when timelines shifted, improve quality through revision, and present a final result in a professional way. The process helped me think more strategically about audience needs, visual communication, and the importance of delivering a polished final product.
 
-      <div class="card span-4">
-        <h2>Contact</h2>
-        <p><strong>Name:</strong> Bushra Khatun</p>
-        <p><strong>Project:</strong> Professional Portfolio Website Development</p>
-        <p><strong>Status:</strong> Final submission ready</p>
-      </div>
-    </section>
-  </main>
+Most importantly, the project showed that successful outcomes often come from continuous improvement rather than perfection in the first draft. That lesson will continue to shape how I approach future projects.
 
-  <footer class="container">
-    <p>Professional Portfolio Website • Final project presentation</p>
-  </footer>
-</body>
-</html>
+Project Details
+Name: Bushra Khatun
+
+Project: Professional Portfolio Website Development
+
+Course Deliverables: Website, final report, Gantt chart, and presentation
+
+Status: Final submission ready
+
+Live Link: https://bkhatun93.github.io/Bushra-Khatun-Portfolio/
+
+Professional Portfolio Website • Final project presentation • Bushra Khatun
