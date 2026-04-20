@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bushra Khatun | Premium Portfolio</title>
+  <meta name="description" content="Premium professional portfolio of Bushra Khatun featuring project work, resume highlights, timeline visuals, and contact information." />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #111a2e;
+      --card: rgba(17, 26, 46, 0.82);
+      --card-solid: #121c31;
+      --text: #e8eefc;
+      --muted: #98a8c5;
+      --accent: #7aa2ff;
+      --accent-strong: #5b87f7;
+      --accent-soft: rgba(122, 162, 255, 0.12);
+      --line: rgba(255,255,255,0.08);
+      --green: #68d391;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(91, 135, 247, 0.20), transparent 28%),
+        radial-gradient(circle at top right, rgba(104, 211, 145, 0.10), transparent 20%),
+        linear-gradient(180deg, #08101d 0%, #0b1220 42%, #0c1526 100%);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 30px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(8, 16, 29, 0.75);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding: 42px 0 18px;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(17, 26, 46, 0.88), rgba(13, 22, 40, 0.95));
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 30px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -80px auto;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(122,162,255,0.18), transparent 65%);
+      pointer-events: none;
+    }
+
+    .portrait {
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.08);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.32);
+      background: #0f172a;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 0.82rem;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.3rem, 5vw, 3.8rem);
+      line-height: 1.05;
+    }
+
+    .lead {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 800px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.25);
+    }
+
+    .primary {
+      background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+      color: white;
+      border-color: transparent;
+    }
+
+    .secondary {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(104, 211, 145, 0.10);
+      color: #9ae6b4;
+      border: 1px solid rgba(104, 211, 145, 0.18);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 700;
+      font-size: 0.93rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      padding: 18px 0 54px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .span-12 { grid-column: span 12; }
+    .span-8 { grid-column: span 8; }
+    .span-7 { grid-column: span 7; }
+    .span-6 { grid-column: span 6; }
+    .span-5 { grid-column: span 5; }
+    .span-4 { grid-column: span 4; }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.3rem;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.03rem;
+    }
+
+    .muted { color: var(--muted); }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .metric {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      text-align: center;
+      padding: 18px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .metric:hover {
+      transform: translateY(-4px);
+      border-color: rgba(122, 162, 255, 0.35);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      background: var(--accent-soft);
+      color: #cfe0ff;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 1px solid rgba(122, 162, 255, 0.14);
+    }
+
+    .case-study {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+      padding: 18px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .case-study:hover {
+      transform: translateY(-4px);
+      border-color: rgba(122, 162, 255, 0.35);
+    }
+
+    .case-study + .case-study { margin-top: 14px; }
+
+    .timeline {
+      position: relative;
+      margin-top: 18px;
+      padding-left: 24px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), rgba(122,162,255,0.12));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 22px;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(122,162,255,0.12);
+    }
+
+    .time {
+      display: inline-block;
+      margin-bottom: 8px;
+      background: rgba(122,162,255,0.12);
+      color: #dce8ff;
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .report-item {
+      border-left: 4px solid var(--accent);
+      padding-left: 14px;
+      margin-top: 14px;
+    }
+
+    .link-box {
+      display: block;
+      margin-top: 10px;
+      border: 1px dashed rgba(122,162,255,0.35);
+      border-radius: 14px;
+      background: rgba(122,162,255,0.08);
+      padding: 14px 16px;
+      color: #dbe7ff;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .resume-entry {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .resume-entry:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+
+    .hire-box {
+      background: linear-gradient(135deg, rgba(122,162,255,0.12), rgba(104,211,145,0.08));
+      border: 1px solid rgba(122,162,255,0.22);
+    }
+
+    .contact-list p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    .contact-list a {
+      color: #dbe7ff;
+    }
+
+    footer {
+      padding: 0 0 50px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .hero-card { grid-template-columns: 1fr; }
+      .span-8, .span-7, .span-6, .span-5, .span-4 { grid-column: span 12; }
+      .two-col { grid-template-columns: 1fr; }
+      .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .metric-grid { grid-template-columns: 1fr; }
+      nav { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Bushra Khatun</div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#resume">Resume</a>
+        <a href="#report">Final Report</a>
+        <a href="#hire-me">Hire Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <div class="hero-card">
+        <img class="portrait" src="bushra-photo.png" alt="Photo of Bushra Khatun">
+        <div>
+          <div class="eyebrow">People Operations • IT Project Management</div>
+          <h1>Professional Portfolio Website</h1>
+          <p class="lead">A premium portfolio experience designed to present my final project, resume, leadership background, and business operations experience in a polished, executive-ready format. This website combines project storytelling with career highlights to create a stronger professional brand.</p>
+          <div class="button-row">
+            <a class="btn primary" href="#resume">📄 Resume Highlights</a>
+            <a class="btn secondary" href="BushraKhatun_Resume_Chicago_01.25.2026.pdf" download>⬇ Download Resume</a>
+            <a class="btn secondary" href="#hire-me">✉ Hire Me</a>
+          </div>
+          <div class="status">✔ Final milestone completed and published live</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="overview">
+      <div class="card span-8">
+        <h2>Project Overview</h2>
+        <p class="muted">This website began as a project proposal and evolved into a polished professional portfolio. The final product demonstrates my ability to move from planning to execution while balancing scope, quality, deadlines, and presentation standards. The website was designed to communicate my work clearly, highlight project outcomes, and create a professional digital presence.</p>
+        <p class="muted">Throughout the process, I focused on design consistency, stronger navigation, responsive layout improvements, and more complete content. By the end of the project, the website reflected not only technical improvement but also a more strategic understanding of user experience, professional branding, and project management discipline.</p>
+        <div class="metric-grid">
+          <div class="metric"><strong>10+ Years</strong><span class="muted">Leadership and operations experience</span></div>
+          <div class="metric"><strong>20+ Staff</strong><span class="muted">Teams supervised</span></div>
+          <div class="metric"><strong>120–180%</strong><span class="muted">Quarterly target achievement</span></div>
+          <div class="metric"><strong>1 Live Site</strong><span class="muted">Published final deliverable</span></div>
+        </div>
+      </div>
+
+      <div class="card span-4">
+        <h2>Core Skills Demonstrated</h2>
+        <div class="pill-row">
+          <span class="pill">Project Planning</span>
+          <span class="pill">Website Development</span>
+          <span class="pill">Content Writing</span>
+          <span class="pill">Professional Branding</span>
+          <span class="pill">Usability Testing</span>
+          <span class="pill">Timeline Management</span>
+          <span class="pill">Power BI Reporting</span>
+          <span class="pill">Team Leadership</span>
+        </div>
+      </div>
+
+      <div class="card span-6" id="case-studies">
+        <h2>Case Studies</h2>
+        <div class="case-study">
+          <h3>Case Study 1: Portfolio Structure and Navigation</h3>
+          <p class="muted">One of the first priorities was improving structure. I reviewed the original prototype and reorganized the site into clearer sections with more intuitive navigation. This improved readability, reduced clutter, and made the website feel more professional and purposeful for users reviewing my work.</p>
+        </div>
+        <div class="case-study">
+          <h3>Case Study 2: Content Refinement and Professional Positioning</h3>
+          <p class="muted">The second major focus was content quality. I expanded project descriptions, strengthened the professional tone of the writing, and clarified the value of each section. This process showed me that strong content is just as important as design when building a professional portfolio.</p>
+        </div>
+        <div class="case-study">
+          <h3>Case Study 3: Responsiveness and Final Usability Improvements</h3>
+          <p class="muted">In the final phase, I focused on responsiveness, spacing, consistency, and usability. Reviewing the site across different screen sizes helped me identify small issues that affected professionalism. Refining those details improved the final presentation quality and user experience.</p>
+        </div>
+      </div>
+
+      <div class="card span-6" id="timeline">
+        <h2>Project Timeline</h2>
+        <p class="muted">The visual timeline below summarizes the main phases completed during the eight-week project cycle.</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="time">Weeks 1–2</span>
+            <div><strong>Planning and proposal development</strong><br><span class="muted">Defined project scope, clarified deliverables, and established the first website concept.</span></div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">Weeks 3–4</span>
+            <div><strong>Prototype creation</strong><br><span class="muted">Built the first version of the site and created the core structure for future content.</span></div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">Weeks 5–6</span>
+            <div><strong>Content expansion and refinement</strong><br><span class="muted">Developed case studies, improved messaging, and aligned the visual design with a more professional standard.</span></div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">Weeks 7–8</span>
+            <div><strong>Testing, polish, and final publication</strong><br><span class="muted">Reviewed usability, made final design updates, completed supporting documents, and published the website live.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card span-12" id="resume">
+        <h2>Resume Highlights</h2>
+        <div class="two-col">
+          <div>
+            <div class="report-item">
+              <h3>Professional Summary</h3>
+              <p class="muted">Experienced business and operations professional with over 10 years of leadership, training, customer service, and process management experience. Proven track record in managing teams, driving business performance, and improving operational efficiency. Currently pursuing graduate study in Information Technology Management and Engineering Management.</p>
+            </div>
+
+            <div class="report-item">
+              <h3>Accomplishments</h3>
+              <ul>
+                <li>Developed inventory tracking spreadsheets using Microsoft Excel.</li>
+                <li>Improved reporting by introducing Power BI for lead and revenue tasks.</li>
+                <li>Supervised teams of 20+ staff members.</li>
+                <li>Resolved product issues through consumer testing and cross-functional collaboration.</li>
+              </ul>
+            </div>
+
+            <div class="report-item">
+              <h3>Skills</h3>
+              <div class="pill-row">
+                <span class="pill">Leadership & Team Management</span>
+                <span class="pill">Business Process Improvement</span>
+                <span class="pill">Training & Development</span>
+                <span class="pill">Customer Relationship Management</span>
+                <span class="pill">Data Analysis & Reporting</span>
+                <span class="pill">Microsoft Office</span>
+                <span class="pill">Power BI</span>
+                <span class="pill">Communication & Coaching</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="report-item">
+              <h3>Education</h3>
+              <ul>
+                <li>Master of Science, Engineering Management — Cumberland University, expected December 2027</li>
+                <li>Master of Science, Information Technology Management — Cumberland University, August 2025</li>
+                <li>MBA, Human Resources Training — Royal College of Engineering and Management, July 2015</li>
+                <li>Bachelor of Science, Commerce and Computers — Villa Marie Degree College for Women, January 2012</li>
+              </ul>
+            </div>
+
+            <div class="report-item">
+              <h3>Languages</h3>
+              <p class="muted">English, Urdu, Hindi, Bengali, Telugu, Gujarati, French, and Spanish.</p>
+            </div>
+
+            <div class="report-item">
+              <h3>Resume Download</h3>
+              <p class="muted">Upload your resume PDF to your GitHub repo using the filename below, then this button will work live.</p>
+              <a class="btn secondary" href="BushraKhatun_Resume_Chicago_01.25.2026.pdf" download>📄 Download My Resume</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card span-12">
+        <h2>Professional Experience</h2>
+
+        <div class="resume-entry">
+          <h3>Team Lead Manager — Global University Systems (GUS Education India) Pvt. Ltd.</h3>
+          <div class="meta">November 2021 – November 2023</div>
+          <ul>
+            <li>Managed support and sales teams, including team leaders and assistant managers.</li>
+            <li>Conducted webinars, performance reviews, and team appraisals.</li>
+            <li>Delegated tasks across departments and ensured operational efficiency.</li>
+            <li>Analyzed data, forecasted trends, and exceeded quarterly sales targets from 120% to 180%.</li>
+            <li>Developed processes and ran marketing and sales campaigns.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry">
+          <h3>Business Process Lead — Abigya Training and Consulting Pvt. Ltd.</h3>
+          <div class="meta">November 2014 – September 2020</div>
+          <ul>
+            <li>Resolved and escalated process issues by coordinating with multiple departments.</li>
+            <li>Interviewed candidates, scheduled staffing, and managed recruitment processes.</li>
+            <li>Designed training modules and conducted Train-the-Trainer sessions.</li>
+            <li>Delivered training in language, communication, and soft skills.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry">
+          <h3>Senior Sales Manager — Iksha IT Solutions Pvt. Ltd.</h3>
+          <div class="meta">November 2009 – September 2014</div>
+          <ul>
+            <li>Implemented sales strategies and ensured compliance with company policies.</li>
+            <li>Trained and coached team members to improve sales performance.</li>
+            <li>Managed customer relationships and improved customer satisfaction metrics.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card span-12" id="report">
+        <h2>Final Report</h2>
+        <div class="two-col">
+          <div>
+            <div class="report-item">
+              <h3>A. Were we successful or not? Why or why not?</h3>
+              <p class="muted">Yes, the project was successful overall. The original goal was to develop a functional and professional portfolio website, and that goal was achieved. The website now presents a stronger structure, more complete content, improved usability, and a polished final appearance. Although some tasks required more time than expected, the project met its primary objectives and produced a live final deliverable.</p>
+            </div>
+
+            <div class="report-item">
+              <h3>B. What were the milestones and subtasks?</h3>
+              <p class="muted">The main milestones included planning, prototype development, content refinement, usability improvement, and final completion. Subtasks included defining goals, organizing the site structure, writing case studies, revising content for clarity, testing responsiveness, updating navigation, and preparing the final report, Gantt chart, and presentation materials.</p>
+            </div>
+
+            <div class="report-item">
+              <h3>C. Where did we miss deadlines, and how could that be prevented?</h3>
+              <p class="muted">A few content-related tasks extended beyond the original timeline because content writing, revision, and design refinement required more time than expected. A manager could prevent similar delays in the future by building buffer time into the schedule, breaking large tasks into smaller checkpoints, and conducting regular progress reviews to identify risks earlier.</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="report-item">
+              <h3>D. What did we learn from the past 8 weeks?</h3>
+              <p class="muted">This project reinforced the importance of realistic planning, iterative improvement, and strong attention to user experience. I learned that content development often takes more time than expected, that feedback and revision strengthen the final result, and that small visual details can significantly affect professionalism.</p>
+            </div>
+
+            <div class="report-item">
+              <h3>E. How will completing this project impact the future?</h3>
+              <p class="muted">Completing this project strengthened my confidence in managing a project from concept to delivery. It improved my skills in project planning, communication, writing, design refinement, and professional presentation. These are valuable skills that will support my academic growth and future work in operations and project management.</p>
+            </div>
+
+            <div class="report-item">
+              <h3>F. Live website link</h3>
+              <a class="link-box" href="https://bkhatun93.github.io/Bushra-Khatun-Portfolio/" target="_blank">https://bkhatun93.github.io/Bushra-Khatun-Portfolio/</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card span-7">
+        <h2>Professional Reflection</h2>
+        <p class="muted">This project was not just about building a website. It was also about learning how to plan work, adjust when timelines shifted, improve quality through revision, and present a final result in a professional way. The process helped me think more strategically about audience needs, visual communication, and the importance of delivering a polished final product.</p>
+        <p class="muted">Most importantly, the project showed that successful outcomes often come from continuous improvement rather than perfection in the first draft. That lesson will continue to shape how I approach future projects.</p>
+      </div>
+
+      <div class="card span-5 hire-box" id="hire-me">
+        <h2>Hire Me / Contact</h2>
+        <div class="contact-list">
+          <p><strong>Name:</strong> Bushra Khatun</p>
+          <p><strong>Location:</strong> Chicago, IL 60626</p>
+          <p><strong>Email:</strong> <a href="mailto:bushra_khatun@icloud.com">bushra_khatun@icloud.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+18723417900">+1 (872) 341-7900</a></p>
+          <p><strong>Portfolio:</strong> <a href="https://bkhatun93.github.io/Bushra-Khatun-Portfolio/" target="_blank">https://bkhatun93.github.io/Bushra-Khatun-Portfolio/</a></p>
+          <p><strong>Focus Areas:</strong> Business Operations, IT Project Management, Customer Success, Process Improvement</p>
+        </div>
+        <div class="button-row" style="margin-top:16px;">
+          <a class="btn primary" href="mailto:bushra_khatun@icloud.com">Send Email</a>
+          <a class="btn secondary" href="BushraKhatun_Resume_Chicago_01.25.2026.pdf" download>Download Resume</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>Premium Professional Portfolio • Final project presentation • Bushra Khatun</p>
+  </footer>
+</body>
+</html>
